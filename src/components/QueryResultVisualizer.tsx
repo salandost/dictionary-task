@@ -41,6 +41,8 @@ const SelectorContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   padding: 12px;
+  border: 2px solid ${color.secondary};
+  border-radius: 5px;
 
   > ul:first-child {
     width: 33%;
@@ -60,6 +62,8 @@ const SelectorContainer = styled.div`
   > ul:last-child {
     width: 66%;
     padding-left: 32px;
+    height: 600px;
+    overflow: scroll;
     span {
       background-color: ${color.highlight};
     }
@@ -104,8 +108,8 @@ const QueryResultVisualizer: FC = observer(() => {
         <h3>
           Results: (<span>{results.count}</span>)
         </h3>
-        {results.words.map((word) => (
-          <li key={word}>{word}</li>
+        {results.words.map((word, index) => (
+          <li key={word+index}>{word}</li>
         ))}
       </ul>
     </SelectorContainer>

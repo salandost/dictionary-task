@@ -6,7 +6,7 @@ import color from "../styles/color";
 
 const InputContainer = styled.div`
   width: 100%;
-  padding: 10px;
+  padding: 16px 0;
 `;
 
 const Input = styled.input`
