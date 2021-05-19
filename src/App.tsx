@@ -1,13 +1,28 @@
-import React, {FC, ReactElement} from 'react';
-import './App.css';
-import dictionary from  './resources/dictionary.json'
+import React, { FC, ReactElement } from "react";
+import QueryInput from "./components/QueryInput";
+import { Header, MainContainer } from "./components/StyledComponents";
+import {
+  DictionaryStoreProvider,
+  DictionaryStore,
+} from "./store/DictionaryStore";
+import QueryResultVisualizer from "./components/QueryResultVisualizer";
+
+const store = new DictionaryStore();
 
 const App: FC = (): ReactElement => {
   return (
-    <div className="App">
-      {dictionary}
-    </div>
+    <>
+      <Header>
+        <h1>Dictionary</h1>
+      </Header>
+      <MainContainer>
+        <DictionaryStoreProvider store={store}>
+          <QueryInput />
+          <QueryResultVisualizer />
+        </DictionaryStoreProvider>
+      </MainContainer>
+    </>
   );
-}
+};
 
 export default App;
